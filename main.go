@@ -1,9 +1,37 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"os/exec"
+)
 
 func main() {
-	fmt.Printf("%v\n", "Hola Angelo Genial!!!!")
+	// ❯ ffplay -v warning -nodisp -autoexit -af "atempo=1" -ss 4 -t 5 -loop 0 samples/ton-doux-sourire.mp3
+
+	cmd := exec.Command(
+		"ffplay",
+		"-v",
+		"warning",
+		"-nodisp",
+		"-autoexit",
+		"-af",
+		"atempo=0.8",
+		"-ss",
+		"4",
+		"-t",
+		"5",
+		"-loop",
+		"0",
+		"samples/ton-doux-sourire.mp3",
+	)
+
+	if err := cmd.Run(); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("DONE!!!")
+	// fmt.Printf("what??? %v\n", cmd.Process.Pid)
 }
 
 // package main
