@@ -9,7 +9,10 @@ If I don't find an easy way to do it with Go, I could use a browser app instead.
 ## Possible libraries for UI
 - https://github.com/gdamore/tcell
 - https://github.com/rivo/tview
-- https://github.com/hajimehoshi/go-mp3
+= https://github.com/jroimartin/gocui
+
+## Repos to watch
+- https://github.com/skanehira/github-tui
 
 ## Using ffplay
 
