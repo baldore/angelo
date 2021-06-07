@@ -2,13 +2,13 @@ package gui
 
 import (
 	"errors"
-	"log"
 
 	"github.com/awesome-gocui/gocui"
 )
 
 type UI struct {
-	box Box
+	box *Box
+	g   *gocui.Gui
 }
 
 func NewUI() UI {
@@ -20,48 +20,29 @@ func NewUI() UI {
 func (ui UI) Start() error {
 	g, err := gocui.NewGui(gocui.OutputNormal, true)
 	if err != nil {
-		log.Panicln(err)
+		return err
 	}
 	defer g.Close()
 
+	ui.g = g
 	g.SetManagerFunc(ui.Layout)
-
-	// TODO: set bindings somewhere else
-	err = g.SetKeybinding("", gocui.KeyArrowRight, gocui.ModNone, func(g *gocui.Gui, v *gocui.View) error {
-		return nil
-	})
-	if err != nil {
-		log.Panicln(err)
+	if ui.StartKeybindings(); err != nil {
+		return err
 	}
-
-	if err = g.SetKeybinding("", gocui.KeyCtrlC, gocui.ModNone, quit); err != nil {
-		log.Panicln(err)
-	}
-
 	if err := g.MainLoop(); err != nil && !errors.Is(err, gocui.ErrQuit) {
-		log.Panicln(err)
+		return err
 	}
 
 	return nil
 }
 
-func (ui UI) StartKeybindings() {
-
-}
-
-func (ui UI) Layout(g *gocui.Gui) error {
-	// fmt.Printf("rendering layout: %v\n", ui)
-	// maxX, maxY := g.Size()
-
-	if _, err := g.SetView("v1", 0, 0, 1, 1, 0); err != nil {
+func (ui *UI) Layout(g *gocui.Gui) error {
+	b := ui.box
+	if _, err := g.SetView("box", b.x, b.y, b.x+b.w, b.y+b.h, 0); err != nil {
 		if !errors.Is(err, gocui.ErrUnknownView) {
 			return err
 		}
 	}
 
 	return nil
-}
-
-func quit(g *gocui.Gui, v *gocui.View) error {
-	return gocui.ErrQuit
 }
