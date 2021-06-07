@@ -24,6 +24,8 @@ func main() {
 	}
 	defer g.Close()
 
+	g.SetManagerFunc(layout)
+
 	if err = g.SetKeybinding("", gocui.KeyCtrlC, gocui.ModNone, quit); err != nil {
 		log.Panicln(err)
 	}
@@ -31,6 +33,20 @@ func main() {
 	if err := g.MainLoop(); err != nil && !errors.Is(err, gocui.ErrQuit) {
 		log.Panicln(err)
 	}
+}
+
+func layout(g *gocui.Gui) error {
+	// maxX, maxY := g.Size()
+	if v, err := g.SetView("v1", 20, 10, 50, 50, 0); err != nil {
+		if !errors.Is(err, gocui.ErrUnknownView) {
+			return err
+		}
+
+		v.Title = "Foo"
+		v.Editable = true
+	}
+
+	return nil
 }
 
 func quit(g *gocui.Gui, v *gocui.View) error {
