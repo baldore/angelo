@@ -37,9 +37,7 @@ function NewSongForm({
 
   const onSubmit: React.FormEventHandler = async (e) => {
     e.preventDefault()
-
     setError('')
-
     try {
       await insertSong(name)
       onSuccess()

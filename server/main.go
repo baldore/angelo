@@ -58,6 +58,25 @@ func main() {
 		}
 	})
 
+	r.Get("/songs/{id}", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+
+		id := chi.URLParam(r, "id")
+		selectSQL := `select id, name from songs where id = $1`
+
+		var song Song
+		err := db.QueryRow(selectSQL, id).Scan(&song.ID, &song.Name)
+		if err != nil {
+			writeJSONMessage(w, fmt.Sprintf("error querying song with id %s: %v", id, err), http.StatusInternalServerError)
+
+			return
+		}
+
+		if err := json.NewEncoder(w).Encode(song); err != nil {
+			log.Printf("error encoding: %v", err)
+		}
+	})
+
 	r.Post("/songs", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 

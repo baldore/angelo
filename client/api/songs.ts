@@ -18,3 +18,12 @@ export async function fetchSongs() {
   const request = await axios.get<Song[]>('/api/songs')
   return request.data
 }
+
+/**
+ * Gets a list of song with a specific id
+ * @param {string} id
+ */
+export async function fetchSongWithId(id: string) {
+  const request = await axios.get<Song>(`/api/songs/${id}`)
+  return request.data
+}
