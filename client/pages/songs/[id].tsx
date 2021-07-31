@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import NextLink from 'next/link'
 import {
   Alert,
   AlertIcon,
@@ -10,6 +11,7 @@ import {
   DrawerOverlay,
   Heading,
   Input,
+  Link,
   Stack,
   useDisclosure,
 } from '@chakra-ui/react'
@@ -90,6 +92,10 @@ export default function SongView() {
       <Head>
         <title>{song.name}</title>
       </Head>
+      <NextLink href="/" passHref>
+        <Link>{'<'} Go back to songs</Link>
+      </NextLink>
+
       <Heading mb={4}>{song.name}</Heading>
       <Heading size="md">Resources</Heading>
     </>
