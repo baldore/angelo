@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NextLink from 'next/link'
 import {
+  Alert,
+  AlertIcon,
   Box,
   Button,
   Drawer,
@@ -14,20 +16,39 @@ import {
   Stack,
   useDisclosure,
 } from '@chakra-ui/react'
-import { songs } from 'data/songs'
 import { FiPlus } from 'react-icons/fi'
+import useSWR from 'swr'
+import { fetchSongs, insertSong } from 'api/songs'
 
 function NewSongForm({
   isOpen,
   onClose,
+  onSuccess,
 }: {
   isOpen: boolean
   onClose: () => void
+  onSuccess: () => void
 }) {
-  const onSubmit: React.FormEventHandler = (e) => {
+  const [error, setError] = useState('')
+  const [name, setName] = useState('')
+  const onSetName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value)
+  }
+
+  const onSubmit: React.FormEventHandler = async (e) => {
     e.preventDefault()
 
-    // TODO: Add logic to create new song
+    setError('')
+
+    try {
+      await insertSong(name)
+      onSuccess()
+      onClose()
+      setName('')
+    } catch (err) {
+      console.log(err?.response?.data)
+      setError(err?.response?.data?.message)
+    }
   }
 
   return (
@@ -40,7 +61,17 @@ function NewSongForm({
         <DrawerBody px={4}>
           <form onSubmit={onSubmit}>
             <Stack spacing={3} mt={2}>
-              <Input placeholder="Name" size="sm" />
+              <Input
+                placeholder="Name"
+                size="sm"
+                value={name}
+                onChange={onSetName}
+              />
+              {error && (
+                <Alert status="error">
+                  <AlertIcon /> {error}
+                </Alert>
+              )}
               <Button type="submit">Save</Button>
             </Stack>
           </form>
@@ -52,6 +83,15 @@ function NewSongForm({
 
 function SongList() {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { data: songs, error, revalidate } = useSWR('/api/songs', fetchSongs)
+
+  if (error) {
+    return <div>Failed to load.</div>
+  }
+
+  if (!songs) {
+    return <div>!loading...</div>
+  }
 
   return (
     <>
@@ -77,7 +117,7 @@ function SongList() {
         ))}
       </Box>
 
-      <NewSongForm isOpen={isOpen} onClose={onClose} />
+      <NewSongForm isOpen={isOpen} onClose={onClose} onSuccess={revalidate} />
     </>
   )
 }

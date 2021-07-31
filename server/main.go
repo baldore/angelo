@@ -1,20 +1,23 @@
 package main
 
 import (
-	"database/sql"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
+	"github.com/baldore/angelo/db"
 	"github.com/go-chi/chi"
-	"github.com/joho/godotenv"
 	"github.com/lib/pq"
 )
 
 type Message struct {
 	Message string `json:"message"`
+}
+
+type Song struct {
+	ID   string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
 }
 
 func writeJSONMessage(w http.ResponseWriter, message string, code int) {
@@ -29,33 +32,36 @@ func writeJSONMessage(w http.ResponseWriter, message string, code int) {
 
 func main() {
 	r := chi.NewRouter()
-
-	if err := godotenv.Load(".env"); err != nil {
-		log.Fatalf("error loading env file: %v", err)
-	}
-
-	connStr := "postgres://postgres:asdfasdf@localhost:5432/angelo?sslmode=disable"
-	db, err := sql.Open("postgres", os.Getenv("POSTGRES_URL"))
-
-	if err != nil {
-		log.Fatalf("error connecting to database: %v", err)
-	}
-
-	if err := db.Ping(); err != nil {
-		log.Fatalf("error pinging to database: %v", err)
-	}
+	db := db.CreateDBConnection()
 
 	r.Get("/songs", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		fmt.Fprintf(w, `{ "message": "hola mundo" }`)
+
+		selectSQL := `select id, name from songs`
+		rows, err := db.Query(selectSQL)
+		if err != nil {
+			writeJSONMessage(w, "error getting songs", http.StatusInternalServerError)
+			return
+		}
+
+		var songs []Song
+		for rows.Next() {
+			var song Song
+			if err := rows.Scan(&song.ID, &song.Name); err != nil {
+				log.Printf("error scanning songs row: %v", err.Error())
+			}
+			songs = append(songs, song)
+		}
+
+		if err := json.NewEncoder(w).Encode(songs); err != nil {
+			log.Printf("error encoding: %v", err)
+		}
 	})
 
 	r.Post("/songs", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 
-		var newSong struct {
-			Name string
-		}
+		var newSong Song
 		if err := json.NewDecoder(r.Body).Decode(&newSong); err != nil {
 			log.Printf("error decoding: %v", err)
 			writeJSONMessage(w, "error decoding request body", http.StatusBadRequest)
@@ -64,11 +70,8 @@ func main() {
 		}
 
 		insertedID := 0
-		insertQuery := `
-            insert into songs (name) values ($1)
-            returning id
-        `
-		err = db.QueryRow(insertQuery, newSong.Name).Scan(&insertedID)
+		insertQuery := `insert into songs (name) values ($1) returning id`
+		err := db.QueryRow(insertQuery, newSong.Name).Scan(&insertedID)
 
 		if err, ok := err.(*pq.Error); ok {
 			log.Printf("error inserting song: %v", err)
