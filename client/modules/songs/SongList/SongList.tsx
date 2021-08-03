@@ -51,7 +51,7 @@ function SongList() {
               </Link>
             </NextLink>
             <Box>
-              <Tag>
+              <Tag as="button" pl="0">
                 <TagLeftIcon as={AiOutlinePlus} />
                 <TagLabel>Add label</TagLabel>
               </Tag>
