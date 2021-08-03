@@ -1,20 +1,10 @@
 import React from 'react'
-import NextLink from 'next/link'
 import useSWR from 'swr'
-import {
-  Box,
-  Button,
-  Heading,
-  Link,
-  Tag,
-  TagLabel,
-  TagLeftIcon,
-  useDisclosure,
-} from '@chakra-ui/react'
+import { Box, Button, Heading, useDisclosure } from '@chakra-ui/react'
 import { FiPlus } from 'react-icons/fi'
-import { AiOutlinePlus } from 'react-icons/ai'
 import { fetchSongs } from 'api/songs'
 import NewSongForm from 'modules/songs/NewSongForm/NewSongForm'
+import SongRow from '../SongRow/SongRow'
 
 function SongList() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -43,20 +33,8 @@ function SongList() {
       </Button>
 
       <Box>
-        {songs.map(({ id, name }) => (
-          <Box key={id} mb={3}>
-            <NextLink href={`/songs/${id}`} passHref>
-              <Link fontSize="xl" textTransform="capitalize">
-                {name}
-              </Link>
-            </NextLink>
-            <Box>
-              <Tag as="button" pl="0">
-                <TagLeftIcon as={AiOutlinePlus} />
-                <TagLabel>Add label</TagLabel>
-              </Tag>
-            </Box>
-          </Box>
+        {songs.map((song) => (
+          <SongRow key={song.id} song={song} />
         ))}
       </Box>
 

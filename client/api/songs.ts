@@ -27,3 +27,13 @@ export async function fetchSongWithId(id: string) {
   const request = await axios.get<Song>(`/api/songs/${id}`)
   return request.data
 }
+
+/**
+ * TODO: I'm here
+ * Updates the labels for a specific song
+ * @param {string} id song id
+ */
+export async function updateSongs(id: string, labels: ) {
+  const request = await axios.get<Song>(`/api/songs/${id}`)
+  return request.data
+}
