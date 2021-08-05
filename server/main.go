@@ -18,7 +18,7 @@ func main() {
 	r.Get("/songs", songsRouter.GetSongs)
 	r.Get("/songs/{id}", songsRouter.GetSong)
 	r.Post("/songs", songsRouter.CreateSong)
-	r.Post("/songs/{id}/labels", songsRouter.UpdateLabels)
+	r.Patch("/songs/{id}/labels", songsRouter.UpdateLabels)
 
 	log.Fatal(http.ListenAndServe(":4000", r))
 }

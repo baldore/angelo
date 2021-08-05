@@ -12,6 +12,8 @@ import {
 import { AiOutlinePlus } from 'react-icons/ai'
 import { Song } from 'types/song'
 import { useImmer } from 'use-immer'
+import { patchSongLabels } from 'api/songs'
+import { mutate } from 'swr'
 
 type Props = {
   song: Song
@@ -20,8 +22,6 @@ type Props = {
 type Label = {
   name: string
 }
-
-// '/songs/{id}/labels'
 
 function SongRow({ song }: Props) {
   const { id, name, labels } = song
@@ -49,8 +49,19 @@ function SongRow({ song }: Props) {
     })
   }
 
-  const onFormSubmit = (e: React.FormEvent) => {
+  const onFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    const newLabels = labels.concat({
+      name: state.newLabel,
+    })
+
+    try {
+      await patchSongLabels(id, newLabels)
+      mutate('/api/songs')
+    } catch (err) {
+      console.error(err)
+    }
 
     setState((d) => {
       d.newLabel = ''

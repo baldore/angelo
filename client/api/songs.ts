@@ -31,7 +31,7 @@ export async function fetchSongWithId(id: string) {
  * Updates the labels for a specific song
  * @param {string} id song id
  */
-export async function patchSongs(id: string, labels: Label[]) {
-  const request = await axios.patch<Song>(`/api/songs/${id}/labels`, { labels })
+export async function patchSongLabels(id: string, labels: Label[]) {
+  const request = await axios.patch<Song>(`/api/songs/${id}/labels`, labels)
   return request.data
 }

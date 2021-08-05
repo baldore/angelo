@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 
@@ -35,8 +36,12 @@ func NewSongsController(db *sql.DB) *SongsController {
 func (c *SongsController) GetSongs(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	selectSQL := `select id, name, labels from songs`
-	rows, err := c.db.Query(selectSQL)
+	sqlQuery := `
+        select id, name, labels
+        from songs
+        order by id
+    `
+	rows, err := c.db.Query(sqlQuery)
 	if err != nil {
 		WriteJSONMessage(w, "error getting songs", http.StatusInternalServerError)
 		return
@@ -55,7 +60,6 @@ func (c *SongsController) GetSongs(w http.ResponseWriter, r *http.Request) {
 			log.Printf("error unmarshalling value: %v", err.Error())
 		}
 
-		log.Printf("labels", rawLabels)
 		song.Labels = labels
 
 		songs = append(songs, song)
@@ -71,11 +75,14 @@ func (c *SongsController) GetSong(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	id := chi.URLParam(r, "id")
-	selectSQL := `select id, name from songs where id = $1`
 
 	var song Song
-	err := c.db.QueryRow(selectSQL, id).Scan(&song.ID, &song.Name)
-	if err != nil {
+	sqlQuery := `
+        select id, name
+        from songs
+        where id = $1
+    `
+	if err := c.db.QueryRow(sqlQuery, id).Scan(&song.ID, &song.Name); err != nil {
 		WriteJSONMessage(w, fmt.Sprintf("error querying song with id %s: %v", id, err), http.StatusInternalServerError)
 		return
 	}
@@ -97,8 +104,10 @@ func (c *SongsController) CreateSong(w http.ResponseWriter, r *http.Request) {
 	}
 
 	insertedID := 0
-	insertQuery := `insert into songs (name) values ($1) returning id`
-	err := c.db.QueryRow(insertQuery, newSong.Name).Scan(&insertedID)
+	err := c.db.QueryRow(
+		`insert into songs (name) values ($1) returning id`,
+		newSong.Name,
+	).Scan(&insertedID)
 
 	if err, ok := err.(*pq.Error); ok {
 		log.Printf("error inserting song: %v", err)
@@ -117,26 +126,32 @@ func (c *SongsController) UpdateLabels(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	id := chi.URLParam(r, "id")
-	// var newSong Song
-	// if err := json.NewDecoder(r.Body).Decode(&newSong); err != nil {
-	// 	log.Printf("error decoding: %v", err)
-	// 	WriteJSONMessage(w, "error decoding request body", http.StatusBadRequest)
-	// 	return
-	// }
 
-	// insertedID := 0
-	// insertQuery := `insert into songs (name) values ($1) returning id`
-	// err := c.db.QueryRow(insertQuery, newSong.Name).Scan(&insertedID)
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		WriteJSONMessage(w, fmt.Sprintf("error reading body: %d", err), http.StatusInternalServerError)
+		return
+	}
 
-	// if err, ok := err.(*pq.Error); ok {
-	// 	log.Printf("error inserting song: %v", err)
-	// 	if err.Code.Name() == "unique_violation" {
-	// 		WriteJSONMessage(w, "song already exists", http.StatusConflict)
-	// 	} else {
-	// 		WriteJSONMessage(w, "error inserting song. Try again later", http.StatusInternalServerError)
-	// 	}
-	// 	return
-	// }
+	// check by unmarshalling
+	var labels []Label
+	if err := json.Unmarshal(body, &labels); err != nil {
+		WriteJSONMessage(w, fmt.Sprintf("error unmarshalling value: %v", err), http.StatusInternalServerError)
+		return
+	}
 
-	WriteJSONMessage(w, fmt.Sprintf("created song with id: %d", id), http.StatusOK)
+	_, err = c.db.Exec(
+		`update songs
+        set labels = $1
+        where id = $2`,
+		string(body),
+		id,
+	)
+	if err != nil {
+		log.Printf("error updating songs labels: %v", err)
+		WriteJSONMessage(w, fmt.Sprintf("error updating song labels"), http.StatusInternalServerError)
+		return
+	}
+
+	WriteJSONMessage(w, fmt.Sprintf("created song with id: %s", id), http.StatusOK)
 }
