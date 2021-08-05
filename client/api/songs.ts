@@ -1,13 +1,11 @@
 import axios from 'axios'
-import type { Song } from 'types/song'
+import type { Label, Song } from 'types/song'
 
 /**
  * Inserts a new song
  */
 export async function insertSong(name: string) {
-  const request = await axios.post<Song[]>('/api/songs', {
-    name,
-  })
+  const request = await axios.post<Song[]>('/api/songs', { name })
   return request.data
 }
 
@@ -33,7 +31,7 @@ export async function fetchSongWithId(id: string) {
  * Updates the labels for a specific song
  * @param {string} id song id
  */
-export async function updateSongs(id: string, labels: ) {
-  const request = await axios.get<Song>(`/api/songs/${id}`)
+export async function patchSongs(id: string, labels: Label[]) {
+  const request = await axios.patch<Song>(`/api/songs/${id}/labels`, { labels })
   return request.data
 }

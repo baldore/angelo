@@ -11,9 +11,14 @@ import (
 	"github.com/lib/pq"
 )
 
+type Label struct {
+	Name string `json:"name"`
+}
+
 type Song struct {
-	ID   string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	ID     string  `json:"id,omitempty"`
+	Name   string  `json:"name,omitempty"`
+	Labels []Label `json:"labels"`
 }
 
 type SongsController struct {
@@ -30,7 +35,7 @@ func NewSongsController(db *sql.DB) *SongsController {
 func (c *SongsController) GetSongs(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	selectSQL := `select id, name from songs`
+	selectSQL := `select id, name, labels from songs`
 	rows, err := c.db.Query(selectSQL)
 	if err != nil {
 		WriteJSONMessage(w, "error getting songs", http.StatusInternalServerError)
@@ -40,9 +45,19 @@ func (c *SongsController) GetSongs(w http.ResponseWriter, r *http.Request) {
 	var songs []Song
 	for rows.Next() {
 		var song Song
-		if err := rows.Scan(&song.ID, &song.Name); err != nil {
+		var rawLabels string
+		if err := rows.Scan(&song.ID, &song.Name, &rawLabels); err != nil {
 			log.Printf("error scanning songs row: %v", err.Error())
 		}
+
+		var labels []Label
+		if err := json.Unmarshal([]byte(rawLabels), &labels); err != nil {
+			log.Printf("error unmarshalling value: %v", err.Error())
+		}
+
+		log.Printf("labels", rawLabels)
+		song.Labels = labels
+
 		songs = append(songs, song)
 	}
 

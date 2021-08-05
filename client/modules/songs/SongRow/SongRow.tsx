@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import NextLink from 'next/link'
 import {
   Box,
@@ -21,13 +21,13 @@ type Label = {
   name: string
 }
 
-'/songs/{id}/labels'
+// '/songs/{id}/labels'
+
 function SongRow({ song }: Props) {
-  const { id, name } = song
+  const { id, name, labels } = song
   const [state, setState] = useImmer({
     enableInput: false,
     newLabel: '',
-    labels: [] as Label[],
   })
 
   const enableNewLabelInput = () => {
@@ -51,8 +51,8 @@ function SongRow({ song }: Props) {
 
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
     setState((d) => {
-      d.labels.push({ name: d.newLabel })
       d.newLabel = ''
       d.enableInput = false
     })
@@ -66,7 +66,7 @@ function SongRow({ song }: Props) {
         </Link>
       </NextLink>
       <Box>
-        {state.labels.map(({ name }) => (
+        {labels.map(({ name }) => (
           <Tag key={name} colorScheme="cyan" mr={2}>
             <TagLabel>{name}</TagLabel>
             <TagCloseButton />
