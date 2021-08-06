@@ -3,7 +3,8 @@
 ## What I want from the app / Nice to have
 - [x] Have a list of songs to study.
 - [x] Create new songs.
-- INPROGRESS [ ] Labels to find easy stuff (check video about KBD trees... maybe can be useful for the filter)
+- [x] Labels to find easy stuff
+- [ ] Add intelligent filter with kbd tree?
 - [ ] Have a list of videos that can be useful for each song.
 - [ ] Control those videos with stuff like loops and pinch change.
 - [ ] Rating system or favorites.

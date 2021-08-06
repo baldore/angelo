@@ -133,7 +133,7 @@ func (c *SongsController) UpdateLabels(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// check by unmarshalling
+	// validate input by unmarshalling
 	var labels []Label
 	if err := json.Unmarshal(body, &labels); err != nil {
 		WriteJSONMessage(w, fmt.Sprintf("error unmarshalling value: %v", err), http.StatusInternalServerError)
@@ -153,5 +153,5 @@ func (c *SongsController) UpdateLabels(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	WriteJSONMessage(w, fmt.Sprintf("created song with id: %s", id), http.StatusOK)
+	WriteJSONMessage(w, fmt.Sprintf("update labels for song: %s", id), http.StatusOK)
 }

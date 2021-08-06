@@ -24,11 +24,27 @@ type Label = {
 }
 
 function SongRow({ song }: Props) {
-  const { id, name, labels } = song
   const [state, setState] = useImmer({
     enableInput: false,
     newLabel: '',
   })
+  const newLabelInputRef = useRef<HTMLInputElement>(null)
+
+  const { id, name, labels } = song
+
+  const updateLabels = async (newLabels: Label[]) => {
+    try {
+      await patchSongLabels(id, newLabels)
+      mutate('/api/songs')
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  const deleteLabel = async ({ name }: Label) => {
+    const newLabels = labels.filter((label) => label.name != name)
+    await updateLabels(newLabels)
+  }
 
   const enableNewLabelInput = () => {
     setState((d) => {
@@ -52,20 +68,18 @@ function SongRow({ song }: Props) {
   const onFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const newLabels = labels.concat({
-      name: state.newLabel,
-    })
+    const { newLabel } = state
+    const labelExists = Boolean(labels.find((l) => l.name === newLabel))
 
-    try {
-      await patchSongLabels(id, newLabels)
-      mutate('/api/songs')
-    } catch (err) {
-      console.error(err)
-    }
+    if (labelExists) return
+
+    // TODO: Add service to show popup errors/alerts
+
+    const newLabels = labels.concat({ name: newLabel })
+    await updateLabels(newLabels)
 
     setState((d) => {
       d.newLabel = ''
-      d.enableInput = false
     })
   }
 
@@ -77,10 +91,10 @@ function SongRow({ song }: Props) {
         </Link>
       </NextLink>
       <Box>
-        {labels.map(({ name }) => (
-          <Tag key={name} colorScheme="cyan" mr={2}>
-            <TagLabel>{name}</TagLabel>
-            <TagCloseButton />
+        {labels.map((label) => (
+          <Tag key={label.name} colorScheme="cyan" mr={2}>
+            <TagLabel>{label.name}</TagLabel>
+            <TagCloseButton onClick={() => deleteLabel(label)} />
           </Tag>
         ))}
 
@@ -88,6 +102,7 @@ function SongRow({ song }: Props) {
           <Box display="inline-block">
             <form onSubmit={onFormSubmit}>
               <Input
+                ref={newLabelInputRef}
                 variant="unstyled"
                 value={state.newLabel}
                 autoFocus
