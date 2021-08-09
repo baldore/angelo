@@ -1,8 +1,12 @@
-import '../styles/globals.css'
-import { ChakraProvider, Container, VStack } from '@chakra-ui/react'
-import type { AppProps } from 'next/app'
 import React from 'react'
+import type { AppProps } from 'next/app'
+import { ChakraProvider, Container, VStack } from '@chakra-ui/react'
 
+import Notifications from 'modules/notifications/Notifications'
+
+/**
+ * Used to set the layout of the page.
+ */
 function MainContainer({ children }: { children: React.ReactElement }) {
   return (
     <VStack h="100vh" py={4}>
@@ -14,11 +18,12 @@ function MainContainer({ children }: { children: React.ReactElement }) {
       >
         {children}
       </Container>
+      <Notifications />
     </VStack>
   )
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <MainContainer>
@@ -28,4 +33,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default App

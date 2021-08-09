@@ -1,12 +1,9 @@
+import { mutate } from 'swr'
+import { useAtom } from 'jotai'
 import React, { useRef } from 'react'
 import NextLink from 'next/link'
 import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Box,
-  CloseButton,
   Input,
   Link,
   Tag,
@@ -15,12 +12,14 @@ import {
   TagLeftIcon,
 } from '@chakra-ui/react'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { Label, Song } from 'types/song'
 import { useImmer } from 'use-immer'
+
+import { Label, Song } from 'types/song'
 import { patchSongLabels } from 'api/songs'
-import { mutate } from 'swr'
+import { addNotificationAtom } from 'modules/notifications/Notifications'
 
 function SongRow({ song }: { song: Song }) {
+  const [, addNotification] = useAtom(addNotificationAtom)
   const newLabelInputRef = useRef<HTMLInputElement>(null)
   const [state, setState] = useImmer({
     enableInput: false,
@@ -68,9 +67,12 @@ function SongRow({ song }: { song: Song }) {
     const { newLabel } = state
     const labelExists = Boolean(labels.find((l) => l.name === newLabel))
 
-    if (labelExists) return
-
-    // TODO: Add service to show popup errors/alerts
+    if (labelExists) {
+      addNotification({
+        message: 'Label already exists...',
+      })
+      return
+    }
 
     const newLabels = labels.concat({ name: newLabel })
     await updateLabels(newLabels)
@@ -116,14 +118,6 @@ function SongRow({ song }: { song: Song }) {
           </Tag>
         )}
       </Box>
-      <Alert status="success" variant="left-accent">
-        <AlertIcon />
-        <AlertTitle mr={2}>Your browser is outdated!</AlertTitle>
-        <AlertDescription>
-          Your Chakra experience may be degraded.
-        </AlertDescription>
-        <CloseButton position="absolute" right="8px" top="8px" />
-      </Alert>
     </Box>
   )
 }
