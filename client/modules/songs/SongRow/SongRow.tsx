@@ -68,9 +68,7 @@ function SongRow({ song }: { song: Song }) {
     const labelExists = Boolean(labels.find((l) => l.name === newLabel))
 
     if (labelExists) {
-      addNotification({
-        message: 'Label already exists...',
-      })
+      addNotification({ status: 'warning', message: 'Label already exists...' })
       return
     }
 
