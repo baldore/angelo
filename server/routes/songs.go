@@ -155,3 +155,22 @@ func (c *SongsController) UpdateLabels(w http.ResponseWriter, r *http.Request) {
 
 	WriteJSONMessage(w, fmt.Sprintf("update labels for song: %s", id), http.StatusOK)
 }
+
+func (c *SongsController) DeleteSong(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	id := chi.URLParam(r, "id")
+
+	_, err := c.db.Exec(
+		`delete from songs
+        where id = $1`,
+		id,
+	)
+	if err != nil {
+		log.Printf("error deleting song: %v", err)
+		WriteJSONMessage(w, fmt.Sprintf("error deleting song with id %q", id), http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+}

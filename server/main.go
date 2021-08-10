@@ -16,8 +16,10 @@ func main() {
 	songsRouter := routes.NewSongsController(db)
 
 	r.Get("/songs", songsRouter.GetSongs)
-	r.Get("/songs/{id}", songsRouter.GetSong)
 	r.Post("/songs", songsRouter.CreateSong)
+
+	r.Get("/songs/{id}", songsRouter.GetSong)
+	r.Delete("/songs/{id}", songsRouter.DeleteSong)
 	r.Patch("/songs/{id}/labels", songsRouter.UpdateLabels)
 
 	log.Fatal(http.ListenAndServe(":4000", r))
