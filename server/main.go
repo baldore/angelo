@@ -6,14 +6,23 @@ import (
 
 	"github.com/baldore/angelo/db"
 	"github.com/baldore/angelo/routes"
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	r := chi.NewRouter()
-	db := db.CreateDBConnection()
+	if err := godotenv.Load(".env"); err != nil {
+		log.Fatalf("error loading env file: %v", err)
+	}
 
-	songsRouter := routes.NewSongsController(db)
+	r := chi.NewRouter()
+	r.Use(middleware.Logger)
+
+	dbConn := db.CreateConn()
+	queries := db.New(dbConn)
+
+	songsRouter := routes.NewSongsController(dbConn, queries)
 
 	r.Get("/songs", songsRouter.GetSongs)
 	r.Post("/songs", songsRouter.CreateSong)
