@@ -11,7 +11,6 @@ import (
 	"strconv"
 
 	"github.com/baldore/angelo/db"
-	"github.com/baldore/angelo/models"
 	"github.com/go-chi/chi/v5"
 	"github.com/lib/pq"
 )
@@ -35,7 +34,6 @@ func (c *SongsController) GetSongs(w http.ResponseWriter, r *http.Request) {
 	songs, err := c.queries.ListSongs(context.Background())
 	if err != nil {
 		WriteJSONMessage(w, "error getting songs", http.StatusInternalServerError)
-
 		return
 	}
 
@@ -51,14 +49,12 @@ func (c *SongsController) GetSong(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(chi.URLParam(r, "id"))
 	if err != nil {
 		WriteJSONMessage(w, fmt.Sprintf("error parsing id: %v", err), http.StatusInternalServerError)
-
 		return
 	}
 
 	song, err := c.queries.GetSong(context.Background(), int32(id))
 	if err != nil {
 		WriteJSONMessage(w, fmt.Sprintf("error getting song: %v", err), http.StatusInternalServerError)
-
 		return
 	}
 
@@ -71,19 +67,18 @@ func (c *SongsController) GetSong(w http.ResponseWriter, r *http.Request) {
 func (c *SongsController) CreateSong(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	var newSong models.Song
-	if err := json.NewDecoder(r.Body).Decode(&newSong); err != nil {
+	var body struct {
+		Name string `json:"name"`
+	}
+
+	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
 		log.Printf("error decoding: %v", err)
 		WriteJSONMessage(w, "error decoding request body", http.StatusBadRequest)
 
 		return
 	}
 
-	insertedID := 0
-	err := c.db.
-		QueryRow("insert into songs (name) values ($1) returning id", newSong.Name).
-		Scan(&insertedID)
-
+	newSong, err := c.queries.CreateSong(context.Background(), body.Name)
 	if err, ok := err.(*pq.Error); ok {
 		log.Printf("error inserting song: %v", err)
 
@@ -96,52 +91,50 @@ func (c *SongsController) CreateSong(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	WriteJSONMessage(w, fmt.Sprintf("created song with id: %d", insertedID), http.StatusOK)
+	WriteJSONMessage(w, fmt.Sprintf("created song with id: %d", newSong.ID), http.StatusOK)
 }
 
 // Update labels.
 func (c *SongsController) UpdateLabels(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	id := chi.URLParam(r, "id")
+	id, err := strconv.Atoi(chi.URLParam(r, "id"))
+	if err != nil {
+		WriteJSONMessage(w, fmt.Sprintf("error converting id: %v", err), http.StatusInternalServerError)
+		return
+	}
 
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error reading body: %d", err), http.StatusInternalServerError)
-
+		WriteJSONMessage(w, fmt.Sprintf("error reading body: %v", err), http.StatusInternalServerError)
 		return
 	}
 
-	// validate input by unmarshalling
-	var labels []models.Label
-	if err := json.Unmarshal(body, &labels); err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error unmarshalling value: %v", err), http.StatusInternalServerError)
-
-		return
-	}
-
-	_, err = c.db.Exec("UPDATE songs SET labels = $1 WHERE id = $2", string(body), id)
+	err = c.queries.UpdateSong(context.Background(), db.UpdateSongParams{
+		ID:     int32(id),
+		Labels: body,
+	})
 	if err != nil {
-		log.Printf("error updating songs labels: %v", err)
-		WriteJSONMessage(w, "error updating song labels", http.StatusInternalServerError)
-
+		WriteJSONMessage(w, fmt.Sprintf("error updating song: %v", err), http.StatusInternalServerError)
 		return
 	}
 
-	WriteJSONMessage(w, fmt.Sprintf("update labels for song: %s", id), http.StatusOK)
+	WriteJSONMessage(w, fmt.Sprintf("update labels for song: %d", id), http.StatusOK)
 }
 
 // Deletes a song.
 func (c *SongsController) DeleteSong(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	id := chi.URLParam(r, "id")
-
-	_, err := c.db.Exec("DELETE FROM songs WHERE id = $1", id)
+	id, err := strconv.Atoi(chi.URLParam(r, "id"))
 	if err != nil {
-		log.Printf("error deleting song: %v", err)
-		WriteJSONMessage(w, fmt.Sprintf("error deleting song with id %q", id), http.StatusInternalServerError)
+		WriteJSONMessage(w, fmt.Sprintf("error converting id: %v", err), http.StatusInternalServerError)
+		return
+	}
 
+	err = c.queries.DeleteSong(context.Background(), int32(id))
+	if err != nil {
+		WriteJSONMessage(w, fmt.Sprintf("error deleting song with id %q", id), http.StatusInternalServerError)
 		return
 	}
 

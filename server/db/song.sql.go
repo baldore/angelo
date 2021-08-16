@@ -5,7 +5,31 @@ package db
 
 import (
 	"context"
+	"encoding/json"
 )
+
+const createSong = `-- name: CreateSong :one
+INSERT INTO songs (name)
+VALUES ($1)
+RETURNING id, name, labels
+`
+
+func (q *Queries) CreateSong(ctx context.Context, name string) (Song, error) {
+	row := q.db.QueryRowContext(ctx, createSong, name)
+	var i Song
+	err := row.Scan(&i.ID, &i.Name, &i.Labels)
+	return i, err
+}
+
+const deleteSong = `-- name: DeleteSong :exec
+DELETE FROM songs
+WHERE id = $1
+`
+
+func (q *Queries) DeleteSong(ctx context.Context, id int32) error {
+	_, err := q.db.ExecContext(ctx, deleteSong, id)
+	return err
+}
 
 const getSong = `-- name: GetSong :one
 SELECT id, name
@@ -52,4 +76,20 @@ func (q *Queries) ListSongs(ctx context.Context) ([]Song, error) {
 		return nil, err
 	}
 	return items, nil
+}
+
+const updateSong = `-- name: UpdateSong :exec
+UPDATE songs
+SET labels = $1
+WHERE id = $2
+`
+
+type UpdateSongParams struct {
+	Labels json.RawMessage `json:"labels"`
+	ID     int32           `json:"id"`
+}
+
+func (q *Queries) UpdateSong(ctx context.Context, arg UpdateSongParams) error {
+	_, err := q.db.ExecContext(ctx, updateSong, arg.Labels, arg.ID)
+	return err
 }
