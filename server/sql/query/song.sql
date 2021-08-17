@@ -4,7 +4,7 @@ FROM songs
 ORDER BY id;
 
 -- name: GetSong :one
-SELECT id, name
+SELECT id, name, labels
 FROM songs
 WHERE id = $1;
 
@@ -13,7 +13,7 @@ INSERT INTO songs (name)
 VALUES ($1)
 RETURNING *;
 
--- name: UpdateSong :exec
+-- name: UpdateSongLabels :exec
 UPDATE songs
 SET labels = $1
 WHERE id = $2;

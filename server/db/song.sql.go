@@ -32,20 +32,15 @@ func (q *Queries) DeleteSong(ctx context.Context, id int32) error {
 }
 
 const getSong = `-- name: GetSong :one
-SELECT id, name
+SELECT id, name, labels
 FROM songs
 WHERE id = $1
 `
 
-type GetSongRow struct {
-	ID   int32  `json:"id"`
-	Name string `json:"name"`
-}
-
-func (q *Queries) GetSong(ctx context.Context, id int32) (GetSongRow, error) {
+func (q *Queries) GetSong(ctx context.Context, id int32) (Song, error) {
 	row := q.db.QueryRowContext(ctx, getSong, id)
-	var i GetSongRow
-	err := row.Scan(&i.ID, &i.Name)
+	var i Song
+	err := row.Scan(&i.ID, &i.Name, &i.Labels)
 	return i, err
 }
 
@@ -78,18 +73,18 @@ func (q *Queries) ListSongs(ctx context.Context) ([]Song, error) {
 	return items, nil
 }
 
-const updateSong = `-- name: UpdateSong :exec
+const updateSongLabels = `-- name: UpdateSongLabels :exec
 UPDATE songs
 SET labels = $1
 WHERE id = $2
 `
 
-type UpdateSongParams struct {
+type UpdateSongLabelsParams struct {
 	Labels json.RawMessage `json:"labels"`
 	ID     int32           `json:"id"`
 }
 
-func (q *Queries) UpdateSong(ctx context.Context, arg UpdateSongParams) error {
-	_, err := q.db.ExecContext(ctx, updateSong, arg.Labels, arg.ID)
+func (q *Queries) UpdateSongLabels(ctx context.Context, arg UpdateSongLabelsParams) error {
+	_, err := q.db.ExecContext(ctx, updateSongLabels, arg.Labels, arg.ID)
 	return err
 }

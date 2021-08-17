@@ -33,7 +33,8 @@ func (c *SongsController) GetSongs(w http.ResponseWriter, r *http.Request) {
 
 	songs, err := c.queries.ListSongs(context.Background())
 	if err != nil {
-		WriteJSONMessage(w, "error getting songs", http.StatusInternalServerError)
+		WriteJSONMessage(w, "error getting songs",
+			http.StatusInternalServerError)
 		return
 	}
 
@@ -48,13 +49,15 @@ func (c *SongsController) GetSong(w http.ResponseWriter, r *http.Request) {
 
 	id, err := strconv.Atoi(chi.URLParam(r, "id"))
 	if err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error parsing id: %v", err), http.StatusInternalServerError)
+		WriteJSONMessage(w, fmt.Sprintf("error parsing id: %v", err),
+			http.StatusInternalServerError)
 		return
 	}
 
 	song, err := c.queries.GetSong(context.Background(), int32(id))
 	if err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error getting song: %v", err), http.StatusInternalServerError)
+		WriteJSONMessage(w, fmt.Sprintf("error getting song: %v", err),
+			http.StatusInternalServerError)
 		return
 	}
 
@@ -85,13 +88,15 @@ func (c *SongsController) CreateSong(w http.ResponseWriter, r *http.Request) {
 		if err.Code.Name() == "unique_violation" {
 			WriteJSONMessage(w, "song already exists", http.StatusConflict)
 		} else {
-			WriteJSONMessage(w, "error inserting song. Try again later", http.StatusInternalServerError)
+			WriteJSONMessage(w, "error inserting song. Try again later",
+				http.StatusInternalServerError)
 		}
 
 		return
 	}
 
-	WriteJSONMessage(w, fmt.Sprintf("created song with id: %d", newSong.ID), http.StatusOK)
+	WriteJSONMessage(w, fmt.Sprintf("created song with id: %d", newSong.ID),
+		http.StatusOK)
 }
 
 // Update labels.
@@ -100,26 +105,31 @@ func (c *SongsController) UpdateLabels(w http.ResponseWriter, r *http.Request) {
 
 	id, err := strconv.Atoi(chi.URLParam(r, "id"))
 	if err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error converting id: %v", err), http.StatusInternalServerError)
+		WriteJSONMessage(w, fmt.Sprintf("error converting id: %v", err),
+			http.StatusInternalServerError)
 		return
 	}
 
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error reading body: %v", err), http.StatusInternalServerError)
+		WriteJSONMessage(w, fmt.Sprintf("error reading body: %v", err),
+			http.StatusInternalServerError)
 		return
 	}
 
-	err = c.queries.UpdateSong(context.Background(), db.UpdateSongParams{
-		ID:     int32(id),
-		Labels: body,
-	})
+	err = c.queries.UpdateSongLabels(context.Background(),
+		db.UpdateSongLabelsParams{
+			ID:     int32(id),
+			Labels: body,
+		})
 	if err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error updating song: %v", err), http.StatusInternalServerError)
+		WriteJSONMessage(w, fmt.Sprintf("error updating song: %v", err),
+			http.StatusInternalServerError)
 		return
 	}
 
-	WriteJSONMessage(w, fmt.Sprintf("update labels for song: %d", id), http.StatusOK)
+	WriteJSONMessage(w, fmt.Sprintf("update labels for song: %d", id),
+		http.StatusOK)
 }
 
 // Deletes a song.
@@ -128,13 +138,15 @@ func (c *SongsController) DeleteSong(w http.ResponseWriter, r *http.Request) {
 
 	id, err := strconv.Atoi(chi.URLParam(r, "id"))
 	if err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error converting id: %v", err), http.StatusInternalServerError)
+		WriteJSONMessage(w, fmt.Sprintf("error converting id: %v", err),
+			http.StatusInternalServerError)
 		return
 	}
 
 	err = c.queries.DeleteSong(context.Background(), int32(id))
 	if err != nil {
-		WriteJSONMessage(w, fmt.Sprintf("error deleting song with id %q", id), http.StatusInternalServerError)
+		WriteJSONMessage(w, fmt.Sprintf("error deleting song with id %q", id),
+			http.StatusInternalServerError)
 		return
 	}
 

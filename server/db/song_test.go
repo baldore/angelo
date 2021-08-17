@@ -101,7 +101,6 @@ func TestCreateSong(t *testing.T) {
 
 func TestListSongs(t *testing.T) {
 	ctx := context.Background()
-
 	_, err := database.ExecContext(ctx, clearSongsQuery)
 	assert.NoError(t, err)
 
@@ -118,7 +117,6 @@ func TestListSongs(t *testing.T) {
 
 func TestGetSong(t *testing.T) {
 	ctx := context.Background()
-
 	newSong, err := queries.CreateSong(ctx, "song to retrieve")
 	assert.NoError(t, err, "error creating song: %v", err)
 
@@ -131,7 +129,6 @@ func TestGetSong(t *testing.T) {
 
 func TestDeleteSong(t *testing.T) {
 	ctx := context.Background()
-
 	newSong, err := queries.CreateSong(ctx, "song to delete")
 	assert.NoError(t, err, "error creating song: %v", err)
 
@@ -140,4 +137,22 @@ func TestDeleteSong(t *testing.T) {
 
 	_, err = queries.GetSong(ctx, newSong.ID)
 	assert.Error(t, err)
+}
+
+func TestUpdateSongLabels(t *testing.T) {
+	ctx := context.Background()
+
+	newSong, err := queries.CreateSong(ctx, "song with labels to update")
+	assert.NoError(t, err, "error creating song: %v", err)
+
+	err = queries.UpdateSongLabels(ctx, db.UpdateSongLabelsParams{
+		ID:     newSong.ID,
+		Labels: json.RawMessage(`[{"name":"foo"}]`),
+	})
+	assert.NoError(t, err, "error updating labels")
+
+	song, err := queries.GetSong(ctx, newSong.ID)
+	assert.NoError(t, err, "error getting song")
+
+	assert.Equal(t, song.Labels, json.RawMessage(`[{"name": "foo"}]`))
 }
