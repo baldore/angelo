@@ -20,6 +20,7 @@ import (
 
 var queries *db.Queries
 
+// Setups dockertest and migrations for tests.
 func TestMain(m *testing.M) {
 	var database *sql.DB
 
