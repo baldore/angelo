@@ -9,6 +9,7 @@ require (
 	github.com/docker/cli v20.10.8+incompatible // indirect
 	github.com/docker/docker v20.10.8+incompatible // indirect
 	github.com/go-chi/chi/v5 v5.0.3
+	github.com/golang-migrate/migrate/v4 v4.14.1
 	github.com/joho/godotenv v1.3.0
 	github.com/lib/pq v1.10.2
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect

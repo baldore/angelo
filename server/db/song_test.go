@@ -3,24 +3,25 @@ package db_test
 import (
 	"context"
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 	"testing"
 
 	"github.com/baldore/angelo/db"
+	"github.com/golang-migrate/migrate/v4"
+	"github.com/golang-migrate/migrate/v4/database/postgres"
+	_ "github.com/golang-migrate/migrate/v4/source/file"
 	_ "github.com/lib/pq"
 	"github.com/ory/dockertest/v3"
 	"github.com/stretchr/testify/assert"
 )
 
-var (
-	database *sql.DB
-	queries  *db.Queries
-)
+var queries *db.Queries
 
 func TestMain(m *testing.M) {
-	var err error
+	var database *sql.DB
 
 	const databaseName = "angelo"
 
@@ -44,11 +45,11 @@ func TestMain(m *testing.M) {
 				resource.GetPort("5432/tcp"),
 				databaseName))
 		if err != nil {
-			return err
+			return fmt.Errorf("error opening sql connection: %w", err)
 		}
 
 		if err = database.Ping(); err != nil {
-			return err
+			return fmt.Errorf("error trying to ping database: %w", err)
 		}
 
 		queries = db.New(database)
@@ -56,6 +57,20 @@ func TestMain(m *testing.M) {
 		return nil
 	}); err != nil {
 		log.Fatalf("Could not connect to docker: %s", err)
+	}
+
+	// run migrations
+	driver, err := postgres.WithInstance(database, &postgres.Config{})
+
+	mig, err := migrate.NewWithDatabaseInstance(
+		"file://../sql/migration",
+		"postgres", driver)
+	if err != nil {
+		log.Fatalf("error creating migration object: %v", err)
+	}
+
+	if err = mig.Up(); err != nil {
+		log.Fatalf("error running migration.up: %v", err)
 	}
 
 	code := m.Run()
@@ -69,6 +84,14 @@ func TestMain(m *testing.M) {
 }
 
 func TestCreateSong(t *testing.T) {
-	_, err := queries.CreateSong(context.Background(), "ton doux sourire")
+	t.Parallel()
+
+	const songName = "ton doux sourire"
+	song, err := queries.CreateSong(context.Background(), songName)
+
 	assert.NoError(t, err, "error creating song: %v", err)
+
+	assert.NotNil(t, song.ID)
+	assert.Equal(t, song.Name, songName)
+	assert.Equal(t, song.Labels, json.RawMessage("[]"))
 }
