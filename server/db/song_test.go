@@ -128,3 +128,16 @@ func TestGetSong(t *testing.T) {
 	assert.Equal(t, newSong.ID, foundSong.ID)
 	assert.Equal(t, newSong.Name, foundSong.Name)
 }
+
+func TestDeleteSong(t *testing.T) {
+	ctx := context.Background()
+
+	newSong, err := queries.CreateSong(ctx, "song to delete")
+	assert.NoError(t, err, "error creating song: %v", err)
+
+	err = queries.DeleteSong(ctx, newSong.ID)
+	assert.NoError(t, err, "error deleting song: %v", err)
+
+	_, err = queries.GetSong(ctx, newSong.ID)
+	assert.Error(t, err)
+}
