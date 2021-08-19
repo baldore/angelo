@@ -1,27 +1,54 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import useSWR from 'swr'
 import { Box, Heading, VStack, Text } from '@chakra-ui/react'
 
 import { fetchSongWithId } from 'api/songs'
 import Head from 'next/head'
+import * as yt from 'modules/youtube/utils'
 
 const songData = {
   resources: [
     {
-      id: 1,
+      id: 'a18ef1d8-fcdc-43f1-84e0-6613e4189831',
       type: 'youtube',
       title: 'fooo',
       description: 'foo description',
       url: 'https://www.youtube.com/watch?v=ZWYPUgn6yaU',
     },
     {
-      id: 2,
+      id: 'a18ef1d8-fcdc-43f1-84e0-6613e4189832',
       type: 'youtube',
       title: 'fooo',
       description: 'foo description',
       url: 'https://www.youtube.com/watch?v=ZWYPUgn6yaU',
     },
   ],
+}
+
+type SongResourceProps = {
+  id?: string
+  title?: string
+  description?: string
+  url?: string
+}
+
+function SongResource({ id, title, description, url }: SongResourceProps) {
+  const player = useRef<yt.Player | null>(null)
+  useEffect(() => {
+    const ready = async () => {
+      await yt.onYoutubeReady()
+      player.current = yt.makePlayer({ id: id ?? '', url: url ?? '' })
+    }
+    ready()
+  }, [id, url])
+
+  return (
+    <Box key={id}>
+      <Heading size="lg">{title}</Heading>
+      <Text>{description}</Text>
+      <div id={id}></div>
+    </Box>
+  )
 }
 
 type Props = {
@@ -49,12 +76,15 @@ function DetailedSong({ id }: Props) {
 
       <Heading mb={4}>{song.name}</Heading>
       <Heading size="md">Resources</Heading>
-      <VStack spacing={2} alignItems="flex-start">
-        {songData?.resources?.map((resource) => (
-          <Box key={resource.id}>
-            <Heading>{resource?.title}</Heading>
-            <Text>{resource?.description}</Text>
-          </Box>
+      <VStack spacing={6} alignItems="flex-start">
+        {songData?.resources?.map(({ id, title, description, url }) => (
+          <SongResource
+            key={id}
+            id={id}
+            title={title}
+            description={description}
+            url={url}
+          />
         ))}
       </VStack>
     </>
