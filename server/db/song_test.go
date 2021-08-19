@@ -97,6 +97,7 @@ func TestCreateSong(t *testing.T) {
 	assert.NotNil(t, song.ID)
 	assert.Equal(t, song.Name, songName)
 	assert.Equal(t, song.Labels, json.RawMessage("[]"))
+	assert.Equal(t, song.Data, json.RawMessage("{}"))
 }
 
 func TestListSongs(t *testing.T) {

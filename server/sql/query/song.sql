@@ -4,7 +4,7 @@ FROM songs
 ORDER BY id;
 
 -- name: GetSong :one
-SELECT id, name, labels
+SELECT *
 FROM songs
 WHERE id = $1;
 

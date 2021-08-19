@@ -11,13 +11,18 @@ import (
 const createSong = `-- name: CreateSong :one
 INSERT INTO songs (name)
 VALUES ($1)
-RETURNING id, name, labels
+RETURNING id, name, labels, data
 `
 
 func (q *Queries) CreateSong(ctx context.Context, name string) (Song, error) {
 	row := q.db.QueryRowContext(ctx, createSong, name)
 	var i Song
-	err := row.Scan(&i.ID, &i.Name, &i.Labels)
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.Labels,
+		&i.Data,
+	)
 	return i, err
 }
 
@@ -32,7 +37,7 @@ func (q *Queries) DeleteSong(ctx context.Context, id int32) error {
 }
 
 const getSong = `-- name: GetSong :one
-SELECT id, name, labels
+SELECT id, name, labels, data
 FROM songs
 WHERE id = $1
 `
@@ -40,7 +45,12 @@ WHERE id = $1
 func (q *Queries) GetSong(ctx context.Context, id int32) (Song, error) {
 	row := q.db.QueryRowContext(ctx, getSong, id)
 	var i Song
-	err := row.Scan(&i.ID, &i.Name, &i.Labels)
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.Labels,
+		&i.Data,
+	)
 	return i, err
 }
 
@@ -50,15 +60,21 @@ FROM songs
 ORDER BY id
 `
 
-func (q *Queries) ListSongs(ctx context.Context) ([]Song, error) {
+type ListSongsRow struct {
+	ID     int32           `json:"id"`
+	Name   string          `json:"name"`
+	Labels json.RawMessage `json:"labels"`
+}
+
+func (q *Queries) ListSongs(ctx context.Context) ([]ListSongsRow, error) {
 	rows, err := q.db.QueryContext(ctx, listSongs)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Song
+	var items []ListSongsRow
 	for rows.Next() {
-		var i Song
+		var i ListSongsRow
 		if err := rows.Scan(&i.ID, &i.Name, &i.Labels); err != nil {
 			return nil, err
 		}

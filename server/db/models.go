@@ -10,4 +10,5 @@ type Song struct {
 	ID     int32           `json:"id"`
 	Name   string          `json:"name"`
 	Labels json.RawMessage `json:"labels"`
+	Data   json.RawMessage `json:"data"`
 }

@@ -27,11 +27,19 @@ export async function fetchSongWithId(id: string) {
 }
 
 /**
- * TODO: I'm here
  * Updates the labels for a specific song
  * @param {string} id song id
  */
 export async function patchSongLabels(id: string, labels: Label[]) {
   const request = await axios.patch<Song>(`/api/songs/${id}/labels`, labels)
+  return request.data
+}
+
+/**
+ * Updates the labels for a specific song
+ * @param {string} id song id
+ */
+export async function deleteSong(id: string) {
+  const request = await axios.delete<Song>(`/api/songs/${id}`)
   return request.data
 }

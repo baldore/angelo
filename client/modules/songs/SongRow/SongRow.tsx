@@ -1,21 +1,28 @@
 import { mutate } from 'swr'
 import { useAtom } from 'jotai'
-import React, { useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import NextLink from 'next/link'
 import {
   Box,
+  IconButton,
+  HStack,
   Input,
   Link,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
   Tag,
   TagCloseButton,
   TagLabel,
   TagLeftIcon,
 } from '@chakra-ui/react'
 import { AiOutlinePlus } from 'react-icons/ai'
+import { HiOutlineDotsVertical } from 'react-icons/hi'
 import { useImmer } from 'use-immer'
 
 import { Label, Song } from 'types/song'
-import { patchSongLabels } from 'api/songs'
+import { deleteSong, patchSongLabels } from 'api/songs'
 import { addNotificationAtom } from 'modules/notifications/Notifications'
 
 function SongRow({ song }: { song: Song }) {
@@ -80,13 +87,32 @@ function SongRow({ song }: { song: Song }) {
     })
   }
 
+  const deleteSongHandler = useCallback(async () => {
+    // TODO: Add modal confirmation
+    await deleteSong(id)
+    addNotification({ status: 'success', message: `Song "${name}" deleted` })
+    mutate('/api/songs')
+  }, [addNotification, id, name])
+
   return (
-    <Box key={id} mb={3}>
-      <NextLink href={`/songs/${id}`} passHref>
-        <Link fontSize="xl" textTransform="capitalize">
-          {id}: {name}
-        </Link>
-      </NextLink>
+    <Box mb={4}>
+      <HStack mb={2}>
+        <Menu>
+          <MenuButton>
+            <HiOutlineDotsVertical />
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={deleteSongHandler}>Delete</MenuItem>
+          </MenuList>
+        </Menu>
+
+        <NextLink href={`/songs/${id}`} passHref>
+          <Link fontSize="xl" textTransform="capitalize">
+            {id}: {name}
+          </Link>
+        </NextLink>
+      </HStack>
+
       <Box>
         {labels.map((label) => (
           <Tag key={label.name} colorScheme="cyan" mr={2}>
