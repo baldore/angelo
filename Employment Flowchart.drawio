@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-25T20:48:59.953Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="ZnVyL5lc2XSd8_S7leEM" version="24.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-25T20:49:53.484Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="Swa8RVR46-qp1bbU2D9W" version="24.6.0" type="github">
   <diagram name="Page-1" id="mbVQlB_5lh4jTQNmV8JY">
     <mxGraphModel dx="1434" dy="1894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -181,8 +181,8 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1010" y="400" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1140" y="60" />
-              <mxPoint x="1140" y="370" />
+              <mxPoint x="1050" y="60" />
+              <mxPoint x="1050" y="370" />
               <mxPoint x="920" y="370" />
             </Array>
             <mxPoint x="1040" y="240" as="sourcePoint" />
@@ -190,7 +190,7 @@
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-152" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wu20T2DJF-u065mbQEqq-61">
           <mxGeometry x="-0.9" y="-1" relative="1" as="geometry">
-            <mxPoint x="-38" y="-11" as="offset" />
+            <mxPoint x="-8" y="-11" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-64" target="wu20T2DJF-u065mbQEqq-68">
@@ -213,38 +213,25 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-66" value="Employer Completes W-4" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="650" y="950" width="160" height="40" as="geometry" />
+          <mxGeometry x="650" y="410" width="160" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="wu20T2DJF-u065mbQEqq-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-68">
+        <mxCell id="wu20T2DJF-u065mbQEqq-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-68" target="wu20T2DJF-u065mbQEqq-66">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="730" y="895" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-68" value="&lt;div&gt;Has W-4&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="880" y="400" width="80" height="80" as="geometry" />
+          <mxGeometry x="880" y="390" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="wu20T2DJF-u065mbQEqq-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.025;entryY=0.567;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-68" target="wu20T2DJF-u065mbQEqq-73">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="910" y="910" as="targetPoint" />
-            <mxPoint x="880" y="935" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="wu20T2DJF-u065mbQEqq-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="wu20T2DJF-u065mbQEqq-66">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="730" y="925" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="wu20T2DJF-u065mbQEqq-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-73" target="wu20T2DJF-u065mbQEqq-77">
+        <mxCell id="wu20T2DJF-u065mbQEqq-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-68" target="wu20T2DJF-u065mbQEqq-77">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="930" y="1010" />
+              <mxPoint x="1100" y="430" />
+              <mxPoint x="1100" y="1010" />
               <mxPoint x="830" y="1010" />
             </Array>
-            <mxPoint x="930" y="925" as="sourcePoint" />
+            <mxPoint x="930" y="923" as="sourcePoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="wu20T2DJF-u065mbQEqq-73" value="&lt;div&gt;No&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="910" y="893" width="40" height="30" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-74" value="&lt;div&gt;Employer Workflow&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="600" width="130" height="30" as="geometry" />
