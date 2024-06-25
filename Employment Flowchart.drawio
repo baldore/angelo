@@ -1,12 +1,9 @@
-<mxfile host="app.diagrams.net" modified="2024-06-25T18:22:34.005Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="25_XGVxezlMmABPjAfLN" version="24.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-25T18:24:31.589Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="Kt9rpFi2nZ5BRYrJ-31N" version="24.6.0" type="github">
   <diagram name="Page-1" id="mbVQlB_5lh4jTQNmV8JY">
     <mxGraphModel dx="1434" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="wu20T2DJF-u065mbQEqq-27" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="120" y="160" width="480" height="620" as="geometry" />
-        </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="360" y="200" as="targetPoint" />
@@ -41,8 +38,8 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="530" y="400" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="460" y="360" />
-              <mxPoint x="360" y="360" />
+              <mxPoint x="460" y="340" />
+              <mxPoint x="360" y="340" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -52,16 +49,19 @@
         <mxCell id="wu20T2DJF-u065mbQEqq-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-11" target="wu20T2DJF-u065mbQEqq-16">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="260" y="360" />
-              <mxPoint x="360" y="360" />
+              <mxPoint x="260" y="340" />
+              <mxPoint x="360" y="340" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-11" value="&lt;div&gt;Worker Completes I-9&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="180" y="280" width="160" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="wu20T2DJF-u065mbQEqq-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-12" target="wu20T2DJF-u065mbQEqq-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-12" value="Worker Completes W-4" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="180" y="560" width="160" height="60" as="geometry" />
+          <mxGeometry x="180" y="480" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-14" value="Employer Completes I-9" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="880" y="480" width="160" height="60" as="geometry" />
@@ -73,7 +73,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-16" value="&lt;div&gt;Has W-4&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="320" y="440" width="80" height="80" as="geometry" />
+          <mxGeometry x="320" y="360" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" target="wu20T2DJF-u065mbQEqq-23" source="wu20T2DJF-u065mbQEqq-16">
           <mxGeometry relative="1" as="geometry">
@@ -85,13 +85,24 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-22" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="240" y="465" width="40" height="30" as="geometry" />
+          <mxGeometry x="240" y="385" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wu20T2DJF-u065mbQEqq-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-23" target="wu20T2DJF-u065mbQEqq-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="540" />
+              <mxPoint x="360" y="540" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-23" value="&lt;div&gt;No&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="440" y="465" width="40" height="30" as="geometry" />
+          <mxGeometry x="440" y="385" width="40" height="30" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-29" value="&lt;div&gt;Worker Workflow&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="120" y="160" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wu20T2DJF-u065mbQEqq-30" value="&lt;div&gt;Has Anvil Workflow&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="560" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
