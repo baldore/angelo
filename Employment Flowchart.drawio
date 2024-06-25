@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-25T21:31:46.484Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="L8e4tTyOtnJdZH4AD76K" version="24.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-25T21:32:49.970Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="MOt0Rnrr8---CR5iiLE5" version="24.6.0" type="github">
   <diagram name="Page-1" id="mbVQlB_5lh4jTQNmV8JY">
     <mxGraphModel dx="1434" dy="1894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -14,7 +14,7 @@
           <mxGeometry x="170" y="-120" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-2" value="&lt;div&gt;COMPLETE&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="790" y="1430" width="80" height="80" as="geometry" />
+          <mxGeometry x="875" y="720" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-6" value="&lt;div&gt;Has I-9&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="412.5" y="100" width="80" height="80" as="geometry" />
@@ -311,7 +311,7 @@
           <mxGeometry x="630" y="570" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-98" value="Anvil Workflow Completed" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="630" y="630" width="160" height="40" as="geometry" />
+          <mxGeometry x="630" y="620" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-108" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-1" target="wu20T2DJF-u065mbQEqq-107">
           <mxGeometry relative="1" as="geometry">
@@ -348,7 +348,7 @@
             <mxPoint x="60" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="40" y="70" />
-              <mxPoint x="40" y="1470" />
+              <mxPoint x="40" y="760" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -483,7 +483,14 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-93" value="" style="shape=waypoint;sketch=0;size=6;pointerEvents=1;points=[];fillColor=none;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;" vertex="1" parent="1">
-          <mxGeometry x="820" y="676" width="20" height="20" as="geometry" />
+          <mxGeometry x="905" y="676" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wu20T2DJF-u065mbQEqq-198" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-98" target="wu20T2DJF-u065mbQEqq-93">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="686" />
+            </Array>
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
