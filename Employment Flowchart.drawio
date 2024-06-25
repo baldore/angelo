@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-25T21:27:05.602Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="ha-_8oxY-X4tuGnBcGPd" version="24.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-25T21:27:40.556Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="3verqWdYDfLEQEEbJU4n" version="24.6.0" type="github">
   <diagram name="Page-1" id="mbVQlB_5lh4jTQNmV8JY">
     <mxGraphModel dx="1434" dy="1894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -196,7 +196,7 @@
         <mxCell id="wu20T2DJF-u065mbQEqq-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-64" target="wu20T2DJF-u065mbQEqq-68">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1070" y="290" />
+              <mxPoint x="1060" y="290" />
               <mxPoint x="920" y="290" />
             </Array>
             <mxPoint x="1050" y="264" as="sourcePoint" />
@@ -204,7 +204,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-64" value="&lt;div&gt;Employer Completes I-9&lt;/div&gt;" style="whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="990" y="180" width="160" height="40" as="geometry" />
+          <mxGeometry x="980" y="190" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-66" target="wu20T2DJF-u065mbQEqq-77">
           <mxGeometry relative="1" as="geometry">
@@ -415,7 +415,7 @@
             <Array as="points">
               <mxPoint x="950" y="240" />
               <mxPoint x="950" y="120" />
-              <mxPoint x="1070" y="120" />
+              <mxPoint x="1060" y="120" />
             </Array>
           </mxGeometry>
         </mxCell>
