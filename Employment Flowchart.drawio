@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-25T19:38:28.031Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="G4yFIvBx3jBrr9wWUsZ_" version="24.6.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-25T19:39:56.752Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="y4Pgttgid0XsrkPaIpWy" version="24.6.0" type="github">
   <diagram name="Page-1" id="mbVQlB_5lh4jTQNmV8JY">
     <mxGraphModel dx="1434" dy="1894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -229,14 +229,14 @@
         <mxCell id="wu20T2DJF-u065mbQEqq-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-64" target="wu20T2DJF-u065mbQEqq-68">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="740" y="850" />
+              <mxPoint x="820" y="850" />
               <mxPoint x="830" y="850" />
             </Array>
             <mxPoint x="730" y="830" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-64" value="&lt;div&gt;Employer Completes I-9&lt;/div&gt;" style="whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="660" y="690" width="160" height="40" as="geometry" />
+          <mxGeometry x="640" y="600" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-66" target="wu20T2DJF-u065mbQEqq-77">
           <mxGeometry relative="1" as="geometry">
@@ -389,7 +389,7 @@
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1090" y="300" />
-              <mxPoint x="1090" y="600" />
+              <mxPoint x="1090" y="530" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -436,11 +436,8 @@
         <mxCell id="wu20T2DJF-u065mbQEqq-131" value="&lt;div&gt;Complete the I-9&lt;/div&gt;&lt;div&gt;offline and upload later&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="900" y="450" width="130" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="wu20T2DJF-u065mbQEqq-139" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-135" target="wu20T2DJF-u065mbQEqq-64">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-135" value="" style="shape=waypoint;sketch=0;size=6;pointerEvents=1;points=[];fillColor=none;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;" vertex="1" parent="1">
-          <mxGeometry x="820" y="590" width="20" height="20" as="geometry" />
+          <mxGeometry x="810" y="520" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="wu20T2DJF-u065mbQEqq-136" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.6;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-131" target="wu20T2DJF-u065mbQEqq-135">
           <mxGeometry relative="1" as="geometry">
@@ -455,6 +452,14 @@
             <Array as="points">
               <mxPoint x="670" y="530" />
               <mxPoint x="830" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wu20T2DJF-u065mbQEqq-140" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wu20T2DJF-u065mbQEqq-135" target="wu20T2DJF-u065mbQEqq-64">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="560" />
+              <mxPoint x="720" y="560" />
             </Array>
           </mxGeometry>
         </mxCell>
