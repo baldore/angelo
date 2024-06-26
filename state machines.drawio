@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-26T17:02:27.739Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="9LV7DPG4oeAPxrQ0uEtH" version="24.6.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-26T17:03:30.463Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="8An6m_83gj3im329uiBN" version="24.6.3" type="github">
   <diagram name="Page-1" id="iukkpxbPmAniCHK0yDrJ">
     <mxGraphModel dx="1499" dy="839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -352,7 +352,7 @@
           <mxGeometry x="878" y="80" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-185" value="COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="878" y="560" width="120" height="40" as="geometry" />
+          <mxGeometry x="878" y="400" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-184" target="TotN1_Kpjb51vsJ2ve7N-188">
           <mxGeometry relative="1" as="geometry">
@@ -392,8 +392,10 @@
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-197" value="WORKER_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="838" y="240" width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-198" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-200" target="TotN1_Kpjb51vsJ2ve7N-203">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-198" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-200" target="TotN1_Kpjb51vsJ2ve7N-185">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="937.9899999999998" y="399.9999999999998" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-199" value="EMPLOYER_SUBMITTED_I9_SECTION_TWO" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TotN1_Kpjb51vsJ2ve7N-198">
           <mxGeometry x="-0.0088" y="2" relative="1" as="geometry">
@@ -402,9 +404,6 @@
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-200" value="ANVIL_COMPLETE_NO_EMPLOYER_COUNTER_SIGN" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="778.62" y="320" width="318.75" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-203" value="I9_SECTION_TWO_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="837.99" y="400" width="200" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-204" value="I-9 only machines" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry width="130" height="30" as="geometry" />
