@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-26T20:19:27.975Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="ArlW1TBzicZwAly4euhl" version="24.6.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-26T20:20:21.228Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="u_7I-c-Sk0Rxf0vRy2IL" version="24.6.3" type="github">
   <diagram name="Page-1" id="iukkpxbPmAniCHK0yDrJ">
     <mxGraphModel dx="1274" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -588,7 +588,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-267" value="" style="whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
-          <mxGeometry y="1850" width="1200" height="540" as="geometry" />
+          <mxGeometry y="1850" width="1200" height="380" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-268" value="No documentation machines" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="10" y="1850" width="200" height="30" as="geometry" />
@@ -617,14 +617,15 @@
           <mxGeometry x="519.38" y="1930" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-278" value="COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="520.63" y="2330" width="120" height="40" as="geometry" />
+          <mxGeometry x="519.38" y="2170" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-279" value="PENDING_NAME" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="520" y="1890" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-282" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-284" target="TotN1_Kpjb51vsJ2ve7N-285">
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-282" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-277" target="TotN1_Kpjb51vsJ2ve7N-285">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="579.38" y="2230" as="targetPoint" />
+            <mxPoint x="579.4000000000001" y="2050" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-283" value="WORKER_COMPLETED_ANVIL" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TotN1_Kpjb51vsJ2ve7N-282">
@@ -632,18 +633,12 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-284" value="WORKER_W_4_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-285" value="WORKER_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="479.38" y="2010" width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-285" value="WORKER_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="480.63" y="2090" width="200" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-288" value="EMPLOYER_W_4_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="480.63" y="2170" width="200" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-289" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-288" target="TotN1_Kpjb51vsJ2ve7N-293">
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-289" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-285" target="TotN1_Kpjb51vsJ2ve7N-293">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="579.4799999999999" y="2630" as="sourcePoint" />
+            <mxPoint x="580.6300000000001" y="2210" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-290" value="EMPLOYER_COMPLETED_ANVIL" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TotN1_Kpjb51vsJ2ve7N-289">
@@ -662,20 +657,21 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-293" value="EMPLOYER_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="500.01" y="2250" width="161.25" height="40" as="geometry" />
+          <mxGeometry x="498.76" y="2090" width="161.25" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-294" value="NOT_STARTED" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="925" y="1930" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-295" value="COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="924.99" y="2250" width="120" height="40" as="geometry" />
+          <mxGeometry x="924.99" y="2090" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-296" value="PENDING_NAME" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="925" y="1890" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-299" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-301" target="TotN1_Kpjb51vsJ2ve7N-304">
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-299" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-294" target="TotN1_Kpjb51vsJ2ve7N-304">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="986.2499999999995" y="2170" as="targetPoint" />
+            <mxPoint x="985" y="2050" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-300" value="WORKER_COMPLETED_ANVIL" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TotN1_Kpjb51vsJ2ve7N-299">
@@ -683,12 +679,9 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-301" value="WORKER_W_4_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="885" y="2010" width="200" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-302" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-304" target="TotN1_Kpjb51vsJ2ve7N-305">
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-302" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-304" target="TotN1_Kpjb51vsJ2ve7N-295">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="984.9949999999999" y="2250" as="targetPoint" />
+            <mxPoint x="985.0050000000001" y="2170" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-303" value="ANVIL_WORKFLOW_COMPLETED" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TotN1_Kpjb51vsJ2ve7N-302">
@@ -697,10 +690,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-304" value="WORKER_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="885" y="2090" width="200" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-305" value="ANVIL_COMPLETE_NO_EMPLOYER_COUNTER_SIGN" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="825.63" y="2170" width="318.75" height="40" as="geometry" />
+          <mxGeometry x="884.99" y="2010" width="200" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
