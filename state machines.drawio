@@ -1,9 +1,36 @@
-<mxfile host="app.diagrams.net" modified="2024-06-26T12:59:38.390Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" version="24.6.3" etag="BZX9eMupxPTAs300JofE" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-26T13:03:20.236Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="98JVdYnqODvUDVSrS4eu" version="24.6.3" type="github">
   <diagram name="Page-1" id="iukkpxbPmAniCHK0yDrJ">
-    <mxGraphModel>
+    <mxGraphModel dx="1434" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-4" target="TotN1_Kpjb51vsJ2ve7N-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-4" value="NOT_STARTED" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-5" value="COMPLETE" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="280" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-6" target="TotN1_Kpjb51vsJ2ve7N-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-6" value="WORKER_SUBMITTED_I9_SECTION_ONE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-7" target="TotN1_Kpjb51vsJ2ve7N-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-7" value="WORKER_COMPLETE" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="160" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="TotN1_Kpjb51vsJ2ve7N-8" target="TotN1_Kpjb51vsJ2ve7N-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-8" value="WORKER_SUBMITTED_I9_SECTION_ONE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="280" height="40" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
