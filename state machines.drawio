@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-26T15:52:35.967Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="IFFpcNPUkXZJtMFZY4sh" version="24.6.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-26T15:52:56.038Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="eGRNrpzQHlpVwsjbvr_k" version="24.6.3" type="github">
   <diagram name="Page-1" id="iukkpxbPmAniCHK0yDrJ">
     <mxGraphModel dx="1499" dy="839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -104,8 +104,8 @@
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-50" value="EMPLOYER_COMPLETE" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="470.62" y="560" width="161.25" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-62" value="I-9 + W-4 Machines" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry y="720" width="130" height="30" as="geometry" />
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-62" value="I-9 + W-4 Machines" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="10" y="720" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="TotN1_Kpjb51vsJ2ve7N-63" value="NOT_STARTED" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="90" y="800" width="120" height="40" as="geometry" />
