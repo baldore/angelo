@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-26T20:20:21.228Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="u_7I-c-Sk0Rxf0vRy2IL" version="24.6.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-26T20:20:38.740Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="_5GjoJOq_1Y_ud_kKTy4" version="24.6.3" type="github">
   <diagram name="Page-1" id="iukkpxbPmAniCHK0yDrJ">
     <mxGraphModel dx="1274" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -608,7 +608,7 @@
             <mxPoint x="183.75" y="2010" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TotN1_Kpjb51vsJ2ve7N-308" value="Complete onboarding" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TotN1_Kpjb51vsJ2ve7N-272">
+        <mxCell id="TotN1_Kpjb51vsJ2ve7N-308" value="COMPLETE_ONBOARDING" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TotN1_Kpjb51vsJ2ve7N-272">
           <mxGeometry x="0.0167" y="3" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
