@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-28T11:26:28.296Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="lTKmHiRCX8hiKWUULhIX" version="24.6.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-28T11:26:46.870Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:128.0) Gecko/20100101 Firefox/128.0" etag="yOLUkCZ17LgrA_gh_Iog" version="24.6.3" type="github">
   <diagram name="Page-1" id="iukkpxbPmAniCHK0yDrJ">
     <mxGraphModel dx="1434" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -864,8 +864,8 @@
         <mxCell id="p0ZQSkAvcLwpYtLcHtOJ-218" value="" style="whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
           <mxGeometry x="1240" y="560" width="1200" height="710" as="geometry" />
         </mxCell>
-        <mxCell id="p0ZQSkAvcLwpYtLcHtOJ-219" value="I-9 + W-4 machines" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="1250" y="560" width="140" height="30" as="geometry" />
+        <mxCell id="p0ZQSkAvcLwpYtLcHtOJ-219" value="I-9 + W-4 machines - Without ANVIL_WORKFLOW_COMPLETED" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="560" width="440" height="30" as="geometry" />
         </mxCell>
         <mxCell id="p0ZQSkAvcLwpYtLcHtOJ-220" value="NOT_STARTED" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="1363.75" y="640" width="120" height="40" as="geometry" />
